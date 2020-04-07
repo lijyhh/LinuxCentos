@@ -1,4 +1,4 @@
-[Linux命令大全](https://man.linuxde.net/)
+[<img src="https://i.loli.net/2020/04/07/xvG6NlkgFtej3hZ.png"/>Linux命令大全](https://man.linuxde.net/)
 
 # 一．Linux基础知识
 
@@ -2931,7 +2931,7 @@ echo“两数之和为：$val"
 完整的表达式要被包含，注意这个字符不是常用的单引号，在Esc键下边。
 ```
 
-<img src="upload%5Cimage-20200407234328917.png" alt="image-20200407234328917" style="zoom: 50%;" />
+<img src="https://i.loli.net/2020/04/07/xvG6NlkgFtej3hZ.png" style="zoom:67%;" />
 
 <img src="https://i.loli.net/2020/04/07/tz2Cc5oqxkAvi7I.png" style="zoom: 67%;" />
 
