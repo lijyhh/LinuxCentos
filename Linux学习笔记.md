@@ -1,4 +1,4 @@
-[<img src="https://i.loli.net/2020/04/07/xvG6NlkgFtej3hZ.png"/>Linux命令大全](https://man.linuxde.net/)
+[Linux命令大全](https://man.linuxde.net/)
 
 # 一．Linux基础知识
 
@@ -326,7 +326,7 @@ bin为binary的简写主要放置一些 系统 的必备执行档例如:cat、cp
 
 补充：在Linux中重命名的命令也是mv，语法和移动语法一样。但是路径得不变。
 
-![mv2](https://pics-1301774945.cos.ap-chengdu.myqcloud.com/20200405101439.png)
+<img src="https://i.loli.net/2020/04/08/K7LZITNamsCvrbE.png"/>
 
 #### 8、rm命令
 
@@ -368,7 +368,7 @@ bin为binary的简写主要放置一些 系统 的必备执行档例如:cat、cp
 
 打开后界面：
 
-![vim](https://pics-1301774945.cos.ap-chengdu.myqcloud.com/20200405102734.png)
+<img src="https://i.loli.net/2020/04/08/i7AwyEfnSzxhG2F.png"/>
 
 #### 10、输出重定向
 
@@ -2944,7 +2944,7 @@ echo“两数之和为：$val"
 ```
 -eq:equal
 -neq:not equal
--t:great thanI
+-gt:great than
 -lt:less than
 -ge:great than or equal
 -le:less than or equal
@@ -2957,49 +2957,216 @@ echo“两数之和为：$val"
 课堂作业：
 写一个脚本，判断当前输入的用户是否存在。如果存在则提示“用户存在”否则提示“用户不存在”。
 
+#### 3.3、逻辑运算符
 
+下表列出了常用的布尔运算符，假定变量a为10，变量b为20：
 
+<img src="https://i.loli.net/2020/04/08/zIMOKF6SsN41Zuk.png"/>
 
+或运算：一个为真即为真，全部为假就是假
 
+与运算：一个为假即为假，全部为真才是真
 
+<img src="https://i.loli.net/2020/04/08/Nn6BqlThCY3J2PK.png" style="zoom: 50%;" />
 
+#### 3.4、字符串运算符
 
+下表列出了常用的字符串运算符，假定变量a为“abc"，变量b为“efg”：
 
+<img src="https://i.loli.net/2020/04/08/zWnLRJwu1VaGNv7.png" style="zoom:50%;" />
 
+<img src="https://i.loli.net/2020/04/08/kqjsXUH3LwFIS9p.png" style="zoom:50%;" />
 
+#### 3.5、文件测试运算符（重点）
 
+文件测试运算符用于检测Unix/Linux文件的各种属性。
+属性检测描述如下：
 
+<img src="https://i.loli.net/2020/04/08/5vX9E3ioOJGVPIs.png" style="zoom: 50%;" />
 
+<img src="https://i.loli.net/2020/04/08/1NvQLfXpUTYunqx.png" style="zoom:50%;" />
 
+<img src="https://i.loli.net/2020/04/08/wsYtSTgBRWrQod1.png" style="zoom:50%;" />
 
+<img src="https://i.loli.net/2020/04/08/FOoGWzUPYlAekQH.png" style="zoom: 50%;" />
 
+注意：权限几个判断，如果只有一个部分符合，则认为是有权限的。
 
+### 4、shell 脚本附带选项（重点）
 
+问题描述：在linux shell 中如何处理tail -10 access.log这样的命令行选项？
 
+步骤：
 
+```
+调用tail指令
+系统内核把后续选项传递给 tail
+Tail先去打开指定的文件
+取出最后10行
+```
 
+问题：自己写的shell是否也可以像内置命令一样传递一些选项呢？
 
+答：可以的，传递方式与上述的描述是一样的，关键是怎么接收。例如：
+传递：
+#./test.sh a b c
 
+#/test.sh a b c接收：
 
+```
+在脚本中可以用“$1”来表示a，“$2”来示b，以此类推。
+```
 
+接收可以用“$”加上选项对应的序号即可。
 
+测试：编写test14.sh，传递a，b，c，输出其值
 
+<img src="https://i.loli.net/2020/04/08/tTiAgrIBe8OV5bl.png" style="zoom: 67%;" />
 
+<img src="https://i.loli.net/2020/04/08/p1Vxsw2OKJgajFq.png" style="zoom:67%;" />
 
+```
+其实$1、$2是变量。
+```
 
+练习：创建自定义指令“user”，可以直接执行，要求该指令具备以下语法和功能：
+a.#user add 用户名【添加用户】
+b.#user del 用户名【删除用户及其家目录】
 
+<img src="https://i.loli.net/2020/04/08/WNEtHdfcrIGY9oA.png" style="zoom:67%;" />
 
+同时题目中要求是指令，所以可以再去添加个别名：
 
+<img src="https://i.loli.net/2020/04/08/lN6CbdUoTR2w4ix.png" style="zoom:67%;" />
 
+# 十二. MySQL基础
 
+## 一、关于数据库
 
+### 1、什么是数据库
 
+<img src="https://i.loli.net/2020/04/08/WqKlLS4ZNRXUzdV.png" style="zoom: 50%;" />
 
+如果一个项目是动态（内容会变化的，网页的后缀.jsp、.php、shtml等等）内容的话，则数据库是必不可少的一个环节。(静态：Html、html)
 
+2、MySQL简介
 
+ MysQL是一个关系型**数据库管理系统**，由瑞典MySQL AB公司开发，2008年被Sun公司收购，目前属于Oracle旗下产品。MysQL是最流行的数据库管理系统之一，在WEB应用方面，MysQL是最好的RDBMS（Relational Database Management System，关系数据库管理系统）应用软件。其和php是黄金搭档。(LAMP/LNMP).
 
+3、常见的其他数据库软件
+目前市场上还有：Oracle（重量级的数据库）、Ms SQL Server（微软）、Access（微软）、PostgresQL、DB2、Mariadb（MysQL分支）
 
+## 二、MySQL的安装与初始化
 
+操作之前先确保计算机时间准确。
+
+### 1、Linux下的软件安装方式（初步）
+
+#### a.源码包
+
+优点
+开源，如果有足够的能力，可以修改源代码编译安装，更加适合自己的系统，稳定高效缺点
+安装步骤较多，容易出错编译过程时间较长
+
+案例：使用源码编译安装方式安装ncurses（一种常用的终端库）
+
+扩展：解包常用语法：
+
+```
+#tar -zxvf *.tar.gz
+#tar -jxvf *.tar.bz2
+选项含义：
+-z或--gzip或--ungzip：通过gzip指令处理文件；
+-x或--extract或--get：从文件中还原文件；
+-V：显示操作过程；
+-f或--file：指定一个文件；
+-j：支持bzip2解压文件；
+```
+
+①先将软包传递到服务器上"/usr/local/src"
+
+<img src="https://i.loli.net/2020/04/08/iHt4Sqb8pGTE6Y7.png"/>
+
+②解压需要安装的源码包
+
+tar -zxvf ncurses-6.1.tar.gz
+
+<img src="https://i.loli.net/2020/04/08/WJI71aOXuGMiyTg.png"/>
+
+③切换到源码文件夹，然后执行后续操作
+
+配置（config/configure/bootstrap）→编译（make/bootstrapd）→安装（make
+install/bootstrapd install）
+
+配置操作主要是指定软件的安装目录、需要的依赖在什么地方、指定不需要可选依赖、配置文件的路径、通用数据存储位置等等。
+
+指定安装的路径：--prefix=路径
+需要依赖的路径：--with-PACKAGE名=包所在的路径
+
+不需要依赖：-without-PACHAGE名
+
+#./configure --prefix=/usr/local/ncurses
+
+<img src="https://i.loli.net/2020/04/08/tHAEL28xgUapJbP.png" style="zoom:67%;" />
+
+#make
+
+<img src="https://i.loli.net/2020/04/08/sC9Kd14EaVL87tB.png" style="zoom:67%;" />
+
+#make install
+
+<img src="https://i.loli.net/2020/04/08/7uUQkyG6PWeoraY.png" style="zoom:67%;" />
+
+成功之后查看目录：
+
+<img src="https://i.loli.net/2020/04/08/hAwGRJnX1ITzYEU.png" style="zoom:67%;" />
+
+#### b.二进制包
+
+优点：包管理系统简单，只需要几个命令就可以实现包的安装，升级，查询和卸载
+
+缺点：经过编译，不再可以看到源代码
+回顾rpm相关指令：
+
+```
+#rpm -ga|grep关键词
+#rpm -e 关键词 [-nodeps]
+#rpm -ivh 完整名称
+#rpm -Uvh 完整名称  更新
+#rpm -qf 文件路径【查询指定文件属于哪个包】
+```
+
+<img src="https://i.loli.net/2020/04/08/jfUnWgNQ4HEpw7Z.png"/>
+
+案例：使用二进制包安装lynx（一款纯命令行的浏览器）
+
+<img src="https://i.loli.net/2020/04/08/d42HVM5SxXvJCGy.png"/>
+
+例如查看百度：#lynx --dump www.baidu.com
+
+c.yum等傻瓜式安装
+
+优点：安装简单，快捷
+缺点：完全丧失了自定义性
+
+常用的yum指令：
+
+```
+#yum list         列出当前已经装的和可以装的软件（全部）
+#yum search        搜索指定的关键词的包
+#yum [-y] install 包名   安装指定的包（-y表示允许不再确认）
+#yum [-y] update [包名]   更新指定的包，不指定包则更新全部软件
+#yum [-y] remove 包名
+```
+
+注意：如果不更改软件来源的情况下，是需要联网才能使用yum的。
+
+案例：使用yum指令卸载火狐浏览器
+
+#yum remove firefox
+
+案例：使用yum指令安装火狐浏览器
+#yum install firefox
 
 
 
